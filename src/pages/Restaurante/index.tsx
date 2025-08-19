@@ -12,14 +12,19 @@ const Restaurante = () => {
       <Container>
         <Title>Menu do Restaurante {id}</Title>
         <Grid>
-          {[1,2,3,4,5,6].map((i) => (
+          {[1, 2, 3, 4, 5, 6].map((i) => (
             <Item key={i}>
-              <img src={`https://picsum.photos/seed/plate${i}/640/360`} alt="" />
+              <img
+                src={`https://picsum.photos/seed/plate${i}/640/360`}
+                alt=""
+              />
               <h3>Prato {i}</h3>
               <p>Descrição breve do prato delicioso.</p>
               <div className="actions">
                 <Button>Adicionar</Button>
-                <Link to="/"><Button variant="ghost">Voltar</Button></Link>
+                <Link to="/">
+                  <Button variant="ghost">Voltar</Button>
+                </Link>
               </div>
             </Item>
           ))}

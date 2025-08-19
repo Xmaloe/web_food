@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import logo from "../assets/logo.svg" // substitua pelo caminho do logo
+import React from 'react'
+import styled from 'styled-components'
+import logo from '../assets/logo.svg' // substitua pelo caminho do logo
 
 const HeaderContainer = styled.header`
   width: 100%;

@@ -22,7 +22,7 @@ export const Title = styled.h1`
 
 export const Subtitle = styled.p`
   font-size: 18px;
-  opacity: .9;
+  opacity: 0.9;
 `
 
 export const Cards = styled.section`
@@ -52,6 +52,11 @@ export const Card = styled.article`
     padding: 16px;
   }
 
-  h3 { font-size: 18px; }
-  p { font-size: 14px; opacity: .8; }
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    font-size: 14px;
+    opacity: 0.8;
+  }
 `

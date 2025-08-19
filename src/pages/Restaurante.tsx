@@ -3,7 +3,7 @@
 
 // ✅ certo
 import Header from '../components/Header'
-import { Button } from "../components/Button"
+import { Button } from '../components/Button'
 
 const Restaurante = () => {
   return (
@@ -18,4 +18,3 @@ const Restaurante = () => {
 }
 
 export default Restaurante
-

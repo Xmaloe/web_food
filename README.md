@@ -10,6 +10,7 @@ npm run dev
 ```
 
 ## Scripts
+
 - `npm run dev` – inicia o servidor Vite
 - `npm run build` – build de produção
 - `npm run preview` – pré-visualiza o build

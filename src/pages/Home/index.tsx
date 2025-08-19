@@ -17,13 +17,18 @@ const Home = () => {
         </Hero>
 
         <Cards>
-          {[1,2,3,4].map((i) => (
+          {[1, 2, 3, 4].map((i) => (
             <Card key={i}>
-              <img src={`https://picsum.photos/seed/efood${i}/640/360`} alt="" />
+              <img
+                src={`https://picsum.photos/seed/efood${i}/640/360`}
+                alt=""
+              />
               <div className="content">
                 <h3>Restaurante {i}</h3>
                 <p>Culinária italiana • $$</p>
-                <Link to={`/restaurante/${i}`}><Button full>Ver menu</Button></Link>
+                <Link to={`/restaurante/${i}`}>
+                  <Button full>Ver menu</Button>
+                </Link>
               </div>
             </Card>
           ))}

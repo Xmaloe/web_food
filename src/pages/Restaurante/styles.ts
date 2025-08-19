@@ -31,8 +31,15 @@ export const Item = styled.article`
     display: block;
   }
 
-  h3 { padding: 12px 16px 0; font-size: 18px; }
-  p { padding: 6px 16px 0; font-size: 14px; opacity: .85; }
+  h3 {
+    padding: 12px 16px 0;
+    font-size: 18px;
+  }
+  p {
+    padding: 6px 16px 0;
+    font-size: 14px;
+    opacity: 0.85;
+  }
 
   .actions {
     display: flex;
