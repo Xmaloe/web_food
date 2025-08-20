@@ -1,41 +1,45 @@
+import { useEffect, useState } from 'react'
+import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import Button from '../../components/Button'
-import { Container, Hero, Title, Subtitle, Cards, Card } from './styles'
-import { Link } from 'react-router-dom'
+import RestaurantList from '../../components/List'
 
-const Home = () => {
-  return (
-    <>
-      <Header />
-      <Container>
-        <Hero>
-          <Title>Descubra restaurantes incríveis</Title>
-          <Subtitle>Peça seus pratos favoritos com poucos cliques</Subtitle>
-          <Link to="/restaurante/1">
-            <Button>Explorar restaurantes</Button>
-          </Link>
-        </Hero>
+  export type CardapioItem = {
+    id: number
+    nome: string
+    descricao: string
+    preco: number
+    porcao: string
+    foto: string
+    quantidade: number
+  }
+  export type Restaurants = {
+    foto: string
+    infos: string[]
+    id: number
+    titulo: string
+    destacado: boolean
+    tipo: string
+    avaliacao: string
+    descricao: string
+    capa: string
+    cardapio: CardapioItem[]
+  }
 
-        <Cards>
-          {[1, 2, 3, 4].map((i) => (
-            <Card key={i}>
-              <img
-                src={`https://picsum.photos/seed/efood${i}/640/360`}
-                alt=""
-              />
-              <div className="content">
-                <h3>Restaurante {i}</h3>
-                <p>Culinária italiana • $$</p>
-                <Link to={`/restaurante/${i}`}>
-                  <Button full>Ver menu</Button>
-                </Link>
-              </div>
-            </Card>
-          ))}
-        </Cards>
-      </Container>
-    </>
-  )
-}
+  const Home = () => {
+    const [restaurants, setRestaurants] = useState<Restaurants[]>([])
 
-export default Home
+    useEffect(() => {
+      fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+        .then((resposta) => resposta.json())
+        .then((resposta) => setRestaurants(resposta))
+    }, [])
+
+    return (
+      <>
+        <Header />
+        <RestaurantList restaurants={restaurants} />
+        <Footer />
+      </>
+    )
+  }
+  export default Home
