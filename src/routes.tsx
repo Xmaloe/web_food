@@ -1,13 +1,49 @@
-import { Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import Content from './containers/content/Content'
+import { ContentWrapper } from './containers/content/ContentStyles'
+import Footer from './containers/footer/Footer'
+import { FooterWrapper } from './containers/footer/FooterStyles'
+import Header from './containers/header/Header'
+import { HeaderWrapper } from './containers/header/HeaderStyles'
+import ErrorPage from './pages/errorPage/ErrorPage'
+import RestaurantPage from './pages/restaurantPage/RestaurantPage'
+import { AppLayout, GlobalStyle } from './style/globalStyles'
 
-import Home from './pages/Home'
-import Perfil from './pages/Perfil'
+const Layout = () => {
+  return (
+    <>
+      <GlobalStyle />
+      <AppLayout>
+        <HeaderWrapper>
+          <Header />
+        </HeaderWrapper>
 
-const Rotas = () => (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/perfil/:id" element={<Perfil />} />
-  </Routes>
-)
+        <ContentWrapper>
+          <Outlet />
+        </ContentWrapper>
 
-export default Rotas
+        <FooterWrapper>
+          <Footer />
+        </FooterWrapper>
+      </AppLayout>
+    </>
+  )
+}
+
+const AppContent = () => {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Layout />,
+      errorElement: <ErrorPage />,
+      children: [
+        { index: true, element: <Content /> },
+        { path: '/RestaurantPage/:id/:title', element: <RestaurantPage /> }
+      ]
+    }
+  ])
+
+  return <RouterProvider router={router} />
+}
+
+export default AppContent
