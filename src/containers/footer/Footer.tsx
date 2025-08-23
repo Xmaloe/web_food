@@ -16,9 +16,7 @@ export default function Footer() {
           <FaInstagram />
         </SocialLinksItens>
       </SocialLinks>
-      <FooterText>
-        A efood é uma plataforma para fins acadêmicos. 
-      </FooterText>
+      <FooterText>A efood é uma plataforma para fins acadêmicos.</FooterText>
     </FooterContainer>
   )
 }
